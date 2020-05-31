@@ -1,0 +1,1 @@
+package armtemplate_test

@@ -1,0 +1,18 @@
+linters:
+  enable-all: true
+  disable:
+    - gochecknoglobals
+    - gochecknoinits
+    - interfacer
+    - testpackage
+
+linters-sttings:
+  funlen:
+    lines: 120
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gomnd # disable magic number check in tests
+        - unlambda

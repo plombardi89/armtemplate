@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "var1": "myVariable",
+    "var2": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "var3": "[variables('var1')]",
+    "var4": {
+      "property1": "value1",
+      "property2": "value2"
+    },
+    "var5": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        },
+        {
+          "name": "diskNames",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('diskNames', 1))]"
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "var6",
+        "count": 5,
+        "input": {
+          "name": "[concat('oneDataDisk', copyIndex('var6', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('var6')]"
+        }
+      },
+      {
+        "name": "var7",
+        "count": 3,
+        "input": {
+          "name": "[concat('twoDataDisk', copyIndex('var7', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('var7')]"
+        }
+      },
+      {
+        "name": "var8",
+        "count": 4,
+        "input": "[concat('stringValue', copyIndex('var8'))]"
+      },
+      {
+        "name": "var9",
+        "count": 4,
+        "input": "[copyIndex('var9')]"
+      }
+    ]
+  },
+  "resources": []
+}
