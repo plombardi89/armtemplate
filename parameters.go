@@ -9,6 +9,10 @@ const (
 	ParamTypeSecureString = "securestring"
 )
 
+type Metadata struct {
+	Description string `json:"description"`
+}
+
 type Parameters interface {
 	Array(name string) ArrayParameter
 	Bool(name string) BoolParameter

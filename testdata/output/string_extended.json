@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "value": "__string_value__",
+  "condition": "__condition_expression__",
+  "copy": {
+    "count": "__count_expression__",
+    "input": "__input__"
+  }
+}
